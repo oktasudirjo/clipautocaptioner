@@ -1,0 +1,36 @@
+# Auto-Captioner configuration
+# All style options below map directly onto an ASS subtitle style.
+
+# --- Transcription ---
+whisper_model: small        # tiny, base, small, medium, large-v3 (bigger = slower/more accurate)
+language: null              # e.g. "en" — leave null to auto-detect
+device: cpu                 # cpu or cuda (auto falls back to cpu if cuda unavailable)
+compute_type: int8          # int8 is fastest on CPU
+
+# --- Caption mode ---
+mode: word                  # "word" = karaoke-style one/few words at a time, "sentence" = full lines
+words_per_group: 1          # only used when mode = word. 1 = single word at a time, 3 = 3 words per caption
+
+# --- Text style ---
+font_name: "Arial Black"    # must be a font installed on the system running ffmpeg
+font_size: 64
+bold: true
+italic: false
+
+# Colors are standard hex, e.g. "#FFFFFF" for white
+text_color: "#FFFFFF"
+outline_color: "#000000"
+outline_width: 3
+shadow: 1                   # drop shadow depth in px, 0 = none
+
+# Highlight color used for the "active" word in word-by-word mode (karaoke effect)
+# Set to null to disable highlighting and use text_color for every word
+highlight_color: "#FFD400"
+
+# --- Position ---
+# vertical position as a percent from the bottom of the frame (0 = bottom edge, 50 = middle)
+position_from_bottom_pct: 12
+alignment: center            # left, center, right
+
+# --- Output ---
+hard_subs: true              # true = burn captions into the video (recommended, works everywhere)
